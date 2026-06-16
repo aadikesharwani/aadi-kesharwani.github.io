@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Aadi Kesharwani — Senior Power BI Developer & BI Consultant. Enterprise analytics for healthcare, pharma, finance, retail and beyond. Based in Pune, available worldwide."/>
+<title>Aadi Kesharwani — Senior Power BI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:       #0D0F1A;
+  --surface:  #131726;
+  --surface2: #1A1F35;
+  --border:   #222844;
+  --accent:   #F7C84A;
+  --purple:   #7B5CF0;
+  --blue:     #3D8EF0;
+  --green:    #34D399;
+  --red:      #F87171;
+  --text:     #E2E8F8;
+  --muted:    #5E6A8A;
+  --mono:     'JetBrains Mono', monospace;
+  --display:  'Syne', sans-serif;
+  --body:     'Space Grotesk', sans-serif;
+  --r:        10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,15,26,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.nav-logo{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--accent);border-radius:8px;font-family:var(--display);font-size:14px;font-weight:800;color:#0D0F1A;letter-spacing:-.01em;flex-shrink:0;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent);color:#0D0F1A;font-size:13px;font-weight:700;padding:8px 18px;border-radius:6px;text-decoration:none;transition:background .2s,transform .15s;}
+.nav-cta:hover{background:#f9d55e;transform:translateY(-1px);}
+
+/* ── WRAP ── */
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+/* ── HERO ── */
+#hero{min-height:100vh;padding-top:58px;display:flex;align-items:center;position:relative;overflow:hidden;}
+
+/* dot grid */
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(123,92,240,.18) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);
+  pointer-events:none;
+}
+/* ambient glows */
+.glow-purple{position:absolute;top:-180px;right:-160px;width:650px;height:650px;background:radial-gradient(circle,rgba(123,92,240,.13) 0%,transparent 70%);pointer-events:none;}
+.glow-gold{position:absolute;bottom:-80px;left:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(247,200,74,.07) 0%,transparent 70%);pointer-events:none;}
+
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;padding:80px 0;}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:100px;padding:6px 14px;font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:28px;}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1{font-family:var(--display);font-size:clamp(40px,5vw,68px);font-weight:800;line-height:1.0;letter-spacing:-.02em;margin-bottom:20px;}
+h1 .line1{display:block;color:var(--text);}
+h1 .line2{display:block;color:var(--accent);}
+h1 .line3{display:block;color:var(--muted);font-size:.52em;font-weight:700;margin-top:6px;letter-spacing:.01em;}
+
+.hero-desc{font-size:16px;color:var(--muted);max-width:440px;margin-bottom:36px;line-height:1.75;}
+.hero-desc strong{color:var(--text);}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:var(--r);font-family:var(--body);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;}
+.btn-primary{background:var(--accent);color:#0D0F1A;}
+.btn-primary:hover{background:#f9d55e;transform:translateY(-2px);box-shadow:0 8px 24px rgba(247,200,74,.25);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ── DASHBOARD PREVIEW ── */
+.hero-right{position:relative;}
+.db-preview{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.55);}
+.db-bar{background:var(--surface2);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.db-dot{width:10px;height:10px;border-radius:50%;}
+.db-dot.r{background:#F87171;} .db-dot.y{background:#F7C84A;} .db-dot.g{background:#34D399;}
+.db-title{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:6px;}
+.db-body{padding:20px;}
+.db-kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+.db-kpi{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+.db-kpi-val{font-family:var(--mono);font-size:22px;font-weight:500;line-height:1;}
+.db-kpi-label{font-size:10px;color:var(--muted);margin-top:4px;font-family:var(--mono);}
+.db-kpi-delta{font-size:10px;margin-top:3px;font-family:var(--mono);}
+.up{color:var(--green);} .down{color:var(--red);} .neu{color:var(--accent);}
+.db-chart-area{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px;}
+.db-chart-label{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:10px;}
+.bar-chart{display:flex;align-items:flex-end;gap:5px;height:60px;}
+.bar{flex:1;border-radius:3px 3px 0 0;min-width:8px;transition:height .6s cubic-bezier(.34,1.4,.64,1);}
+.bar.gold{background:var(--accent);} .bar.purple{background:var(--purple);} .bar.blue{background:var(--blue);}
+.db-bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.db-mini{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;}
+.db-mini-label{font-family:var(--mono);font-size:9px;color:var(--muted);margin-bottom:8px;}
+.donut-wrap{display:flex;align-items:center;gap:10px;}
+.donut{width:44px;height:44px;border-radius:50%;background:conic-gradient(var(--accent) 0% 38%,var(--purple) 38% 75%,var(--blue) 75% 100%);flex-shrink:0;}
+.donut-legend{display:flex;flex-direction:column;gap:3px;}
+.dl{font-family:var(--mono);font-size:9px;color:var(--muted);display:flex;align-items:center;gap:4px;}
+.dl::before{content:'';width:7px;height:7px;border-radius:2px;}
+.dl.gold::before{background:var(--accent);} .dl.purple::before{background:var(--purple);} .dl.blue::before{background:var(--blue);}
+.rls-badge{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);border-radius:4px;padding:3px 7px;font-family:var(--mono);font-size:9px;color:var(--green);display:inline-flex;align-items:center;gap:4px;margin-top:6px;}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 0;}
+.stats-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
+.stat-item{text-align:center;padding:0 20px;position:relative;}
+.stat-item+.stat-item::before{content:'';position:absolute;left:0;top:10%;height:80%;width:1px;background:var(--border);}
+.stat-val{font-family:var(--display);font-size:36px;font-weight:800;color:var(--accent);line-height:1;}
+.stat-label{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:4px;}
+
+/* ── SECTIONS ── */
+section{padding:100px 0;}
+.sec-label{font-family:var(--mono);font-size:11px;color:var(--purple);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;}
+h2{font-family:var(--display);font-size:clamp(28px,4vw,46px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:54px;}
+
+/* ── INDUSTRIES TICKER ── */
+.industries-section{background:var(--bg);padding:0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.industries-inner{display:flex;align-items:center;}
+.industries-label{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap;padding:18px 24px;border-right:1px solid var(--border);letter-spacing:.08em;text-transform:uppercase;flex-shrink:0;}
+.ticker-wrap{overflow:hidden;flex:1;position:relative;}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--bg),transparent);}
+.ticker-wrap::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent);}
+.ticker-track{display:flex;gap:0;animation:ticker 28s linear infinite;width:max-content;}
+.ticker-track:hover{animation-play-state:paused;}
+.ticker-item{display:inline-flex;align-items:center;gap:9px;padding:18px 28px;font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;border-right:1px solid var(--border);transition:color .2s;}
+.ticker-item:hover{color:var(--text);}
+.ticker-icon{font-size:16px;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SKILLS ── */
+#skills{background:var(--surface);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.skill-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:border-color .2s,transform .2s;}
+.skill-card:hover{border-color:var(--purple);transform:translateY(-2px);}
+.skill-icon{font-size:22px;margin-bottom:10px;}
+.skill-card h3{font-size:14px;font-weight:600;margin-bottom:12px;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{background:var(--surface2);border:1px solid var(--border);color:var(--muted);font-family:var(--mono);font-size:10px;padding:4px 9px;border-radius:4px;}
+.tag.hot{border-color:var(--accent);color:var(--accent);}
+.tag.purple{border-color:var(--purple);color:var(--purple);}
+.tag.green{border-color:var(--green);color:var(--green);}
+
+/* AI BANNER */
+.ai-banner{background:linear-gradient(135deg,rgba(123,92,240,.12),rgba(61,142,240,.08));border:1px solid rgba(123,92,240,.3);border-radius:14px;padding:40px;margin-top:48px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;}
+.ai-icon-box{width:56px;height:56px;background:var(--purple);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.ai-text h3{font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:8px;}
+.ai-text p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:14px;}
+.ai-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{background:rgba(123,92,240,.15);border:1px solid rgba(123,92,240,.3);border-radius:4px;padding:4px 10px;font-family:var(--mono);font-size:10px;color:var(--purple);}
+
+/* ── WHY ME ── */
+#why{background:var(--bg);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.why-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px 28px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s;}
+.why-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.why-card:nth-child(1)::before{background:linear-gradient(90deg,var(--purple),var(--blue));}
+.why-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),var(--green));}
+.why-card:nth-child(3)::before{background:linear-gradient(90deg,var(--green),var(--accent));}
+.why-num{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;margin-bottom:16px;}
+.why-card h3{font-family:var(--display);font-size:19px;font-weight:800;margin-bottom:10px;}
+.why-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ── PROJECTS ── */
+#projects{background:var(--surface);}
+.project-feature{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:32px;display:grid;grid-template-columns:1fr 1fr;transition:border-color .3s;}
+.project-feature:hover{border-color:var(--purple);}
+.project-feature.reverse{direction:rtl;}
+.project-feature.reverse > *{direction:ltr;}
+.proj-img{position:relative;min-height:340px;background:var(--surface2);display:flex;flex-direction:column;}
+.proj-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-family:var(--mono);font-size:11px;text-align:center;padding:24px;min-height:340px;}
+.proj-img-placeholder .icon{font-size:40px;margin-bottom:6px;}
+.proj-tag-overlay{position:absolute;bottom:14px;left:14px;display:flex;flex-wrap:wrap;gap:5px;}
+.proj-content{padding:40px 36px;display:flex;flex-direction:column;justify-content:center;}
+.proj-num{font-family:var(--mono);font-size:11px;color:var(--purple);letter-spacing:.1em;margin-bottom:10px;}
+.proj-content h3{font-family:var(--display);font-size:24px;font-weight:800;margin-bottom:6px;line-height:1.1;}
+.proj-domain{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:16px;}
+.proj-desc{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.65;}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:24px;}
+.feat-list li{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.5;}
+.feat-list li::before{content:'→';position:absolute;left:0;color:var(--purple);font-size:11px;}
+.proj-impact{display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:20px;}
+.impact-val{font-family:var(--mono);font-size:20px;color:var(--accent);font-weight:500;}
+.impact-desc{font-size:11px;color:var(--muted);}
+.proj-stack{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px;}
+
+/* ── DOMAIN ── */
+#domain{background:var(--bg);}
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.domain-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:border-color .2s;}
+.domain-card:hover{border-color:var(--blue);}
+.domain-card h3{font-size:15px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.domain-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+.domain-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.pill{background:var(--surface2);border:1px solid var(--border);border-radius:100px;padding:4px 12px;font-family:var(--mono);font-size:10px;color:var(--muted);}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--surface);}
+.tl{display:flex;flex-direction:column;}
+.tl-item{display:grid;grid-template-columns:180px 32px 1fr;gap:0;}
+.tl-date{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;padding-top:3px;padding-right:20px;line-height:1.5;}
+.tl-line{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--purple);border:2px solid var(--surface);flex-shrink:0;transition:background .2s;}
+.tl-item:hover .tl-dot{background:var(--accent);}
+.tl-track{flex:1;width:1px;background:var(--border);margin:4px 0;}
+.tl-item:last-child .tl-track{display:none;}
+.tl-content{padding-bottom:48px;padding-left:20px;}
+.tl-content h3{font-size:17px;font-weight:700;margin-bottom:3px;}
+.tl-company{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:14px;}
+.tl-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.tl-list li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;line-height:1.55;}
+.tl-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:11px;}
+.tl-badge{display:inline-flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
+
+/* ── CERTS ── */
+#certs{background:var(--bg);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;display:flex;align-items:center;gap:14px;transition:border-color .2s;}
+.cert-card:hover{border-color:var(--blue);}
+.cert-icon{width:38px;height:38px;background:var(--surface2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.cert-text h4{font-size:13px;font-weight:700;margin-bottom:2px;}
+.cert-text p{font-size:11px;color:var(--muted);}
+
+/* ── SKILLS TICKER (footer) ── */
+.skills-ticker{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;}
+.skills-ticker .ticker-track{animation-duration:22s;}
+.skills-ticker .ticker-item{padding:4px 20px;border-right:none;font-size:11px;color:var(--muted);}
+.skills-ticker .ticker-item span{color:var(--border);}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg);text-align:center;}
+#contact .wrap{max-width:640px;}
+.contact-eye{font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.contact-eye::before,.contact-eye::after{content:'';flex:1;height:1px;background:var(--border);}
+#contact h2{margin-bottom:14px;}
+#contact p{color:var(--muted);font-size:15px;margin-bottom:40px;line-height:1.75;}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.contact-link{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);color:var(--text);text-decoration:none;padding:13px 22px;border-radius:var(--r);font-size:14px;font-weight:500;transition:all .2s;}
+.contact-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;}
+footer p{font-family:var(--mono);font-size:12px;color:var(--muted);}
+footer span{color:var(--accent);}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;}
+  .hero-right{display:none;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .project-feature{grid-template-columns:1fr;}
+  .project-feature.reverse{direction:ltr;}
+  .tl-item{grid-template-columns:0 32px 1fr;}
+  .tl-date{display:none;}
+  .domain-grid{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:repeat(3,1fr);gap:16px;}
+  .stat-item+.stat-item::before{display:none;}
+  .nav-links{display:none;}
+  .ai-banner{grid-template-columns:1fr;}
+}
+@media(max-width:540px){
+  .skills-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .why-grid{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;}
+  .hero-badge::before{animation:none;}
+  .ticker-track{animation:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Aadi Kesharwani home">AK</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Hire Me ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" aria-label="Introduction">
+<div class="glow-purple" aria-hidden="true"></div>
+<div class="glow-gold" aria-hidden="true"></div>
+<div class="wrap">
+<div class="hero-grid">
+
+  <div class="hero-left reveal">
+    <div class="hero-badge" aria-label="Availability status">Available for remote &amp; international roles</div>
+    <h1>
+      <span class="line1">Aadi</span>
+      <span class="line2">Kesharwani</span>
+      <span class="line3">Senior Power BI Developer · BI Consultant</span>
+    </h1>
+    <p class="hero-desc">
+      I build <strong>enterprise analytics platforms</strong> that people actually open every morning —
+      end-to-end, from data architecture to go-live adoption.
+      Delivered across <strong>healthcare, pharma, manufacturing, and beyond</strong>.
+      Based in Pune. Available worldwide.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">↗ Let's Talk</a>
+      <a href="#projects" class="btn btn-ghost">View My Work</a>
+      <a href="Aadi_Kesharwani_Resume.pdf" class="btn btn-ghost" download aria-label="Download resume PDF">⬇ Resume</a>
+    </div>
+  </div>
+
+  <div class="hero-right reveal" aria-hidden="true">
+    <div class="db-preview">
+      <div class="db-bar">
+        <div class="db-dot r"></div>
+        <div class="db-dot y"></div>
+        <div class="db-dot g"></div>
+        <span class="db-title">Field Dashboard · Power BI · Nation / United States / YTD</span>
+      </div>
+      <div class="db-body">
+        <div class="db-kpi-row">
+          <div class="db-kpi">
+            <div class="db-kpi-val" id="kpi1" style="color:var(--text)">—</div>
+            <div class="db-kpi-label">Registrations</div>
+            <div class="db-kpi-delta up" id="kpi1d">▲ 62% vs Goal</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-val" id="kpi2" style="color:var(--text)">—</div>
+            <div class="db-kpi-label">Apheresis</div>
+            <div class="db-kpi-delta up">▲ 105% Attainment</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-val" id="kpi3" style="color:var(--text)">—</div>
+            <div class="db-kpi-label">Total HCPs</div>
+            <div class="db-kpi-delta up">▲ 8% vs Prev QTD</div>
+          </div>
+        </div>
+        <div class="db-chart-area">
+          <div class="db-chart-label">// Referral Patterns — Monthly</div>
+          <div class="bar-chart" id="barChart"></div>
+        </div>
+        <div class="db-bottom">
+          <div class="db-mini">
+            <div class="db-mini-label">// ATC Segment Distribution</div>
+            <div class="donut-wrap">
+              <div class="donut"></div>
+              <div class="donut-legend">
+                <div class="dl gold">Gold 38%</div>
+                <div class="dl purple">Silver 37%</div>
+                <div class="dl blue">Bronze 25%</div>
+              </div>
+            </div>
+          </div>
+          <div class="db-mini">
+            <div class="db-mini-label">// Security &amp; Access</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6;">Dynamic RLS Active<br>Territory → Region<br>→ Area → National</div>
+            <div class="rls-badge">🔒 RLS ENFORCED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar" role="region" aria-label="Career highlights">
+<div class="wrap">
+<div class="stats-inner">
+  <div class="stat-item">
+    <div class="stat-val" data-target="4" data-suffix="+">0+</div>
+    <div class="stat-label">yrs experience</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">15+</div>
+    <div class="stat-label">dashboards shipped</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">5+</div>
+    <div class="stat-label">industries served</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">80%+</div>
+    <div class="stat-label">user adoption rate</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">2</div>
+    <div class="stat-label">enterprise clients</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- INDUSTRIES TICKER -->
+<div class="industries-section" role="region" aria-label="Industries served">
+  <div class="industries-inner">
+    <div class="industries-label">Industries</div>
+    <div class="ticker-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <div class="ticker-item"><span class="ticker-icon">🧬</span> Healthcare</div>
+        <div class="ticker-item"><span class="ticker-icon">💊</span> Pharma</div>
+        <div class="ticker-item"><span class="ticker-icon">🏭</span> Manufacturing</div>
+        <div class="ticker-item"><span class="ticker-icon">🛍️</span> Retail</div>
+        <div class="ticker-item"><span class="ticker-icon">📈</span> Finance</div>
+        <div class="ticker-item"><span class="ticker-icon">🚚</span> Logistics</div>
+        <div class="ticker-item"><span class="ticker-icon">☁️</span> SaaS</div>
+        <div class="ticker-item"><span class="ticker-icon">🛒</span> E-commerce</div>
+        <div class="ticker-item"><span class="ticker-icon">⚡</span> Energy</div>
+        <div class="ticker-item"><span class="ticker-icon">🏗️</span> Real Estate</div>
+        <!-- duplicate for seamless loop -->
+        <div class="ticker-item"><span class="ticker-icon">🧬</span> Healthcare</div>
+        <div class="ticker-item"><span class="ticker-icon">💊</span> Pharma</div>
+        <div class="ticker-item"><span class="ticker-icon">🏭</span> Manufacturing</div>
+        <div class="ticker-item"><span class="ticker-icon">🛍️</span> Retail</div>
+        <div class="ticker-item"><span class="ticker-icon">📈</span> Finance</div>
+        <div class="ticker-item"><span class="ticker-icon">🚚</span> Logistics</div>
+        <div class="ticker-item"><span class="ticker-icon">☁️</span> SaaS</div>
+        <div class="ticker-item"><span class="ticker-icon">🛒</span> E-commerce</div>
+        <div class="ticker-item"><span class="ticker-icon">⚡</span> Energy</div>
+        <div class="ticker-item"><span class="ticker-icon">🏗️</span> Real Estate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills" aria-label="Technical skills">
+<div class="wrap">
+  <p class="sec-label reveal">// technical stack</p>
+  <h2 class="reveal">What I Build With</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">📊</div>
+      <h3>Power BI</h3>
+      <div class="tags">
+        <span class="tag hot">Desktop &amp; Service</span>
+        <span class="tag hot">Advanced DAX</span>
+        <span class="tag hot">Dynamic RLS</span>
+        <span class="tag">Power Query (M)</span>
+        <span class="tag">Deployment Pipelines</span>
+        <span class="tag">Mobile</span>
+        <span class="tag">Dataflows</span>
+        <span class="tag">Gateways &amp; Refresh</span>
+        <span class="tag">Power BI Apps</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">🗄️</div>
+      <h3>Data Engineering</h3>
+      <div class="tags">
+        <span class="tag hot">SQL (Advanced)</span>
+        <span class="tag hot">Amazon Redshift</span>
+        <span class="tag green">Snowflake</span>
+        <span class="tag">Stored Procedures</span>
+        <span class="tag">Window Functions</span>
+        <span class="tag">Star Schema</span>
+        <span class="tag">Presto</span>
+        <span class="tag">Performance Tuning</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">☁️</div>
+      <h3>Cloud &amp; AI</h3>
+      <div class="tags">
+        <span class="tag purple">Power BI + Claude AI</span>
+        <span class="tag purple">Azure OpenAI</span>
+        <span class="tag">Azure Maps</span>
+        <span class="tag">Azure Data Fundamentals</span>
+        <span class="tag">Microsoft Fabric (learning)</span>
+        <span class="tag">Python (automation)</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">🔗</div>
+      <h3>Data Sources</h3>
+      <div class="tags">
+        <span class="tag">Amazon Redshift</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">SAP</span>
+        <span class="tag">SharePoint</span>
+        <span class="tag">Oracle</span>
+        <span class="tag">Smartsheet</span>
+        <span class="tag">Veeva</span>
+        <span class="tag">REST APIs</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">🎯</div>
+      <h3>BI Consulting</h3>
+      <div class="tags">
+        <span class="tag hot">Requirements Analysis</span>
+        <span class="tag">US Onshore Stakeholders</span>
+        <span class="tag">UAT &amp; SIT</span>
+        <span class="tag">Daily Governance</span>
+        <span class="tag">User Adoption Tracking</span>
+        <span class="tag">End-user Training</span>
+        <span class="tag">Scrum &amp; Agile</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal">
+      <div class="skill-icon">⚙️</div>
+      <h3>Automation &amp; Tools</h3>
+      <div class="tags">
+        <span class="tag green">Python Scripts</span>
+        <span class="tag">ServiceNow Automation</span>
+        <span class="tag">Dataset Refresh Automation</span>
+        <span class="tag">User Access Automation</span>
+        <span class="tag">DAX Studio</span>
+        <span class="tag">Tabular Editor</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI BANNER -->
+  <div class="ai-banner reveal">
+    <div class="ai-icon-box" aria-hidden="true">🤖</div>
+    <div class="ai-text">
+      <h3>Power BI + Generative AI</h3>
+      <p>
+        Integrating Claude AI and Azure OpenAI with Power BI to build the next generation of
+        enterprise BI — natural language Q&amp;A on dashboards, AI-generated KPI narrative summaries
+        that explain <em>why</em> a metric moved, anomaly detection embedded directly into executive
+        reports, and intelligent pre-call card suggestions for field sales teams.
+        This is where enterprise analytics is heading — and I'm already shipping it.
+      </p>
+      <div class="ai-chips">
+        <span class="chip">Claude AI</span>
+        <span class="chip">Azure OpenAI</span>
+        <span class="chip">NLP on Data</span>
+        <span class="chip">Narrative Summaries</span>
+        <span class="chip">Anomaly Detection</span>
+        <span class="chip">Power BI Embedded</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- WHY ME -->
+<section id="why" aria-label="Why work with me">
+<div class="wrap">
+  <p class="sec-label reveal">// differentiators</p>
+  <h2 class="reveal">Why Teams Choose Me</h2>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-num">01 / FULL-STACK BI</div>
+      <h3>One person,<br/>whole pipeline.</h3>
+      <p>From raw source tables in Redshift or Snowflake to a polished dashboard your stakeholders trust — I own every layer. No handoffs, no gaps, no finger-pointing when something breaks.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-num">02 / US CLIENT EXPERIENCE</div>
+      <h3>Onshore pace,<br/>offshore cost.</h3>
+      <p>I've worked US onshore timelines independently, run daily calls with American stakeholders, and delivered enterprise platforms under the same rigour as a New York consultant — from Pune.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-num">03 / AI-AUGMENTED BI</div>
+      <h3>Dashboards that<br/>explain themselves.</h3>
+      <p>Integrating LLMs directly into Power BI so reports surface the narrative, not just the number. Your leadership team gets the "why" without digging through filters.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" aria-label="Selected projects">
+<div class="wrap">
+  <p class="sec-label reveal">// selected work</p>
+  <h2 class="reveal">Enterprise Dashboards Delivered</h2>
+
+  <!-- PROJECT 1 -->
+  <div class="project-feature reveal">
+    <div class="proj-img">
+      <img src="summary.png" alt="Field Sales Dashboard — Summary page showing KPI cards, enrollment metrics and activity section"      style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;min-height:340px;"/>
+        <div class="icon" aria-hidden="true">📊</div>
+        <div style="font-weight:600;color:var(--text);">Field Sales Dashboard</div>
+        <div>US Pharma / CAR-T Therapy</div>
+        <div style="font-size:9px;color:var(--border);margin-top:8px;">
+          Add screenshot: &lt;img src="field-dashboard.png" alt="Field Sales Dashboard"/&gt;
+        </div>
+      </div>
+      <div class="proj-tag-overlay">
+        <span class="tag hot">Power BI</span>
+        <span class="tag green">Redshift</span>
+        <span class="tag purple">Dynamic RLS</span>
+      </div>
+    </div>
+    <div class="proj-content">
+      <div class="proj-num">// PROJECT 01</div>
+      <h3>Field Sales &amp; CAR-T Therapy Analytics Platform</h3>
+      <div class="proj-domain">US Pharma · Confidential Client · ZS Associates</div>
+      <p class="proj-desc">
+        End-to-end Power BI platform tracking the complete CAR-T therapy patient journey —
+        from physician registration through apheresis to final delivery — across the entire
+        US national field force at Territory, Region, Area, and National levels.
+      </p>
+      <ul class="feat-list">
+        <li>8-page report suite: Summary, Performance, Activity, Customer List, Enrollment List, Pre-Call Card, Payer Analysis, Map View</li>
+        <li>Dynamic RLS across 4 geography tiers: Territory → Region → Area → National</li>
+        <li>Key metrics: Registrations, Apheresis, Deliveries, TRx/NRx/NBRx, Cancellations, HCP Reach, Call Frequency, Target Reach</li>
+        <li>ATC segmentation (Gold / Silver / Bronze) with scatter plot opportunity analysis</li>
+        <li>Azure Maps visual for national ATC coverage with cluster markers</li>
+        <li>HCP 360° drill-through: interaction timeline, enrollment trend, patient regimen distribution</li>
+        <li>Auto-generated Insights panel surfacing anomalies without any user query</li>
+        <li>Time intelligence: LTD / YTD / QTD / MTD / R12M / R13W periods</li>
+      </ul>
+      <div class="proj-stack">
+        <span class="tag hot">Advanced DAX</span>
+        <span class="tag">Amazon Redshift</span>
+        <span class="tag">Power Query</span>
+        <span class="tag">Azure Maps</span>
+        <span class="tag">Dynamic RLS</span>
+        <span class="tag">Veeva + Kite Konnect</span>
+        <span class="tag">Deployment Pipelines</span>
+      </div>
+      <div class="proj-impact">
+        <div class="impact-stat"><div class="impact-val">8</div><div class="impact-desc">dashboards in 3 months</div></div>
+        <div class="impact-stat"><div class="impact-val">80%+</div><div class="impact-desc">user adoption</div></div>
+        <div class="impact-stat"><div class="impact-val">~0</div><div class="impact-desc">defects at go-live</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-feature reverse reveal">
+    <div class="proj-img">
+      <img src="performance.png" alt="KAM Field Sales Dashboard — Performance page showing enrollment trend chart and prescriber metrics" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;min-height:340px;"/>
+        <div class="icon" aria-hidden="true">🏥</div>
+        <div style="font-weight:600;color:var(--text);">KAM Field Sales Reporting</div>
+        <div>US Healthcare / Ophthalmology</div>
+        <div style="font-size:9px;color:var(--border);margin-top:8px;">
+          Add screenshot: &lt;img src="kam-dashboard.png" alt="KAM Dashboard"/&gt;
+        </div>
+      </div>
+      <div class="proj-tag-overlay">
+        <span class="tag hot">Power BI</span>
+        <span class="tag">KAM Analytics</span>
+        <span class="tag purple">Nat'l Benchmarking</span>
+      </div>
+    </div>
+    <div class="proj-content">
+      <div class="proj-num">// PROJECT 02</div>
+      <h3>KAM Field Sales Reporting &amp; Analytics Platform</h3>
+      <div class="proj-domain">US Healthcare · Confidential Client · Celebal Technologies</div>
+      <p class="proj-desc">
+        Comprehensive Key Account Manager analytics platform for a national US healthcare field force,
+        enabling reps and leadership to track enrollments, prescriber engagement, payer mix, and
+        speaker program effectiveness across all US geographies.
+      </p>
+      <ul class="feat-list">
+        <li>10-page report: My Team Summary, My Team Details, Summary, Performance, Activity, Geography Performance, Enrollment List, Customer List, Pre-Call Card, Payer</li>
+        <li>National Average benchmarking with color-coded Top 25% / Middle 50% / Bottom 25% heat maps</li>
+        <li>Geography drill-down: Nation → Area → Region → Territory with expandable matrix</li>
+        <li>Prescriber 360° view: NPS, Median Time to Therapy, enrollment trends, interaction history</li>
+        <li>Payer mix analysis: donut by payer type + payer trend over time (Medicare/Medicaid/Commercial)</li>
+        <li>Speaker Program tracker: program counts by speaker, attendee breakdown, RD Dashboard</li>
+        <li>Silent prescriber flagging with configurable time-period thresholds</li>
+      </ul>
+      <div class="proj-stack">
+        <span class="tag hot">Advanced DAX</span>
+        <span class="tag">Conditional Formatting</span>
+        <span class="tag">Time Intelligence</span>
+        <span class="tag">Bookmarks</span>
+        <span class="tag">Drill-through</span>
+        <span class="tag">Custom Tooltips</span>
+        <span class="tag">Dynamic RLS</span>
+      </div>
+      <div class="proj-impact">
+        <div class="impact-stat"><div class="impact-val">10+</div><div class="impact-desc">report pages</div></div>
+        <div class="impact-stat"><div class="impact-val">National</div><div class="impact-desc">US field force coverage</div></div>
+        <div class="impact-stat"><div class="impact-val">KAM</div><div class="impact-desc">self-serve analytics</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- DOMAIN EXPERTISE -->
+<section id="domain" aria-label="Domain expertise">
+<div class="wrap">
+  <p class="sec-label reveal">// depth + breadth</p>
+  <h2 class="reveal">Domain Expertise</h2>
+  <div class="domain-grid">
+
+    <div class="domain-card reveal">
+      <h3>🧬 CAR-T Therapy Analytics</h3>
+      <p>Deep expertise in tracking the complete CAR-T patient journey — from initial physician registration through apheresis cell collection to final therapy delivery — including turnaround time analysis across Gold/Silver/Bronze ATC segments.</p>
+      <div class="domain-pills">
+        <span class="pill">Registrations</span><span class="pill">Apheresis</span><span class="pill">Deliveries</span>
+        <span class="pill">ATC Segments</span><span class="pill">TAT Analysis</span><span class="pill">Cancellations</span>
+      </div>
+    </div>
+
+    <div class="domain-card reveal">
+      <h3>💊 Pharma Sales Metrics</h3>
+      <p>Fluent in pharma commercial analytics vocabulary — prescription tracking, rep call activity, HCP engagement, territory attainment, and market access metrics used by US field sales leadership and onshore stakeholders.</p>
+      <div class="domain-pills">
+        <span class="pill">TRx / NRx / NBRx</span><span class="pill">Target Reach</span><span class="pill">Call Frequency</span>
+        <span class="pill">HCP Targeting</span><span class="pill">Territory Attainment</span><span class="pill">NPS</span>
+      </div>
+    </div>
+
+    <div class="domain-card reveal">
+      <h3>🏗️ Enterprise BI Architecture</h3>
+      <p>Designing optimized semantic models on Redshift and Snowflake — star schema, incremental refresh, gateway configuration, deployment pipelines, and performance-tuned DAX that handles millions of rows without blinking.</p>
+      <div class="domain-pills">
+        <span class="pill">Star Schema</span><span class="pill">Semantic Models</span><span class="pill">RLS Design</span>
+        <span class="pill">Performance Tuning</span><span class="pill">Deployment Pipelines</span><span class="pill">1000+ line DAX</span>
+      </div>
+    </div>
+
+    <div class="domain-card reveal">
+      <h3>🎯 Stakeholder &amp; Delivery</h3>
+      <p>I've run requirements workshops, managed UAT cycles, and driven adoption across US enterprise clients — independently, on onshore timelines. I translate ambiguous business asks into working dashboards, not slide decks.</p>
+      <div class="domain-pills">
+        <span class="pill">Requirements Analysis</span><span class="pill">UAT / SIT</span><span class="pill">Agile Delivery</span>
+        <span class="pill">US Onshore Experience</span><span class="pill">User Training</span><span class="pill">Adoption Tracking</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" aria-label="Work experience">
+<div class="wrap">
+  <p class="sec-label reveal">// career</p>
+  <h2 class="reveal">Experience</h2>
+  <div class="tl">
+
+    <div class="tl-item reveal">
+      <div class="tl-date">Apr 2024<br/>Present</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+      <div class="tl-content">
+        <h3>Associate — Power Platform Services</h3>
+        <div class="tl-company">ZS Associates · Pune, India · US Healthcare / Pharma</div>
+        <ul class="tl-list">
+          <li>Primary Power BI POC for US pharma client — sole BI owner for a national field sales analytics platform from initial setup through production.</li>
+          <li>Delivered 8 enterprise dashboards in 3 months with 80%+ user adoption and near-zero defects at go-live.</li>
+          <li>Implemented Dynamic RLS across Territory, Region, Area, and National hierarchy — enabling secure self-serve analytics for field reps and leadership.</li>
+          <li>Managed 13 dashboards concurrently across 2 US clients (pharma + healthcare mobile Power BI project).</li>
+          <li>Worked US onshore timelines independently for Nuvation mobile Power BI project — owned 3 dashboards end-to-end.</li>
+          <li>50% backend rotation: built SQL tables, stored procedures, window functions on Amazon Redshift — delivered 50% of a 6-month plan in 2 months.</li>
+          <li>Automated dataset refresh, user access, and report migration via Python scripts integrated with ServiceNow.</li>
+          <li>Delivered 10–15 POCs; mentored one junior Power BI developer.</li>
+          <li>Received "Pat on the Back" award and formal appreciation from PAMs for performance and ownership.</li>
+        </ul>
+        <div class="tl-badge">
+          <span class="tag hot">Power BI</span>
+          <span class="tag">Amazon Redshift</span>
+          <span class="tag green">Python</span>
+          <span class="tag purple">DAX</span>
+          <span class="tag">ServiceNow</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-date">Jan 2022<br/>Mar 2024</div>
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
+      <div class="tl-content">
+        <h3>Associate Power BI Developer</h3>
+        <div class="tl-company">Celebal Technologies · Pune, India · Multi-industry</div>
+        <ul class="tl-list">
+          <li>Developed enterprise Power BI dashboards for multiple clients across US healthcare, manufacturing, and retail industries.</li>
+          <li>Integrated data from SQL Server, SAP, SharePoint, Smartsheet, and Oracle into optimized semantic models.</li>
+          <li>Built advanced DAX measures, drill-through reports, bookmarks, and optimized dashboard UI/UX.</li>
+          <li>Managed Power BI Service deployments, gateway configuration, scheduled refreshes, and end-user training.</li>
+          <li>Supported full delivery lifecycle: requirements → development → UAT → go-live → adoption.</li>
+        </ul>
+        <div class="tl-badge">
+          <span class="tag hot">Power BI</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">SAP</span>
+          <span class="tag">SharePoint</span>
+          <span class="tag">Oracle</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- CERTS -->
+<section id="certs" aria-label="Certifications">
+<div class="wrap">
+  <p class="sec-label reveal">// credentials</p>
+  <h2 class="reveal">Certifications</h2>
+  <div class="certs-grid">
+    <div class="cert-card reveal"><div class="cert-icon">📊</div><div class="cert-text"><h4>PL-300</h4><p>Microsoft Power BI Data Analyst Associate</p></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🔷</div><div class="cert-text"><h4>DP-500</h4><p>Azure Enterprise Data Analyst Expert</p></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">☁️</div><div class="cert-text"><h4>AZ-900</h4><p>Microsoft Azure Fundamentals</p></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">📁</div><div class="cert-text"><h4>DP-900</h4><p>Azure Data Fundamentals</p></div></div>
+    <div class="cert-card reveal"><div class="cert-icon">🗄️</div><div class="cert-text"><h4>SQL</h4><p>Basic · Intermediate · Advanced</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- SKILLS TICKER -->
+<div class="skills-ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item">Power BI <span>·</span></div>
+    <div class="ticker-item">Advanced DAX <span>·</span></div>
+    <div class="ticker-item">Amazon Redshift <span>·</span></div>
+    <div class="ticker-item">Snowflake <span>·</span></div>
+    <div class="ticker-item">Dynamic RLS <span>·</span></div>
+    <div class="ticker-item">Azure OpenAI <span>·</span></div>
+    <div class="ticker-item">Power Query (M) <span>·</span></div>
+    <div class="ticker-item">SQL Server <span>·</span></div>
+    <div class="ticker-item">Python <span>·</span></div>
+    <div class="ticker-item">Star Schema <span>·</span></div>
+    <div class="ticker-item">Tabular Editor <span>·</span></div>
+    <div class="ticker-item">DAX Studio <span>·</span></div>
+    <div class="ticker-item">Azure Maps <span>·</span></div>
+    <div class="ticker-item">Deployment Pipelines <span>·</span></div>
+    <div class="ticker-item">Veeva <span>·</span></div>
+    <div class="ticker-item">ServiceNow <span>·</span></div>
+    <!-- duplicate -->
+    <div class="ticker-item">Power BI <span>·</span></div>
+    <div class="ticker-item">Advanced DAX <span>·</span></div>
+    <div class="ticker-item">Amazon Redshift <span>·</span></div>
+    <div class="ticker-item">Snowflake <span>·</span></div>
+    <div class="ticker-item">Dynamic RLS <span>·</span></div>
+    <div class="ticker-item">Azure OpenAI <span>·</span></div>
+    <div class="ticker-item">Power Query (M) <span>·</span></div>
+    <div class="ticker-item">SQL Server <span>·</span></div>
+    <div class="ticker-item">Python <span>·</span></div>
+    <div class="ticker-item">Star Schema <span>·</span></div>
+    <div class="ticker-item">Tabular Editor <span>·</span></div>
+    <div class="ticker-item">DAX Studio <span>·</span></div>
+    <div class="ticker-item">Azure Maps <span>·</span></div>
+    <div class="ticker-item">Deployment Pipelines <span>·</span></div>
+    <div class="ticker-item">Veeva <span>·</span></div>
+    <div class="ticker-item">ServiceNow <span>·</span></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" aria-label="Contact">
+<div class="wrap">
+  <div class="contact-eye">Open to opportunities</div>
+  <p class="sec-label reveal" style="justify-content:center;display:flex;">// let's work together</p>
+  <h2 class="reveal">Remote &amp; International<br/>Roles Welcome</h2>
+  <p class="reveal">
+    I bring enterprise BI rigour to any industry —<br/>
+    let's build something your users will actually open every morning.
+  </p>
+  <div class="contact-links reveal">
+    <a href="mailto:aadi.kesharwani.work@gmail.com" class="contact-link" aria-label="Send email to Aadi">✉ Email</a>
+    <a href="https://linkedin.com/in/aadi-kesharwani" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">💼 LinkedIn</a>
+    <a href="https://github.com/aadi-kesharwani" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">🐙 GitHub</a>
+    <a href="Aadi_Kesharwani_Resume.pdf" class="contact-link" download aria-label="Download resume PDF">⬇ Resume</a>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+  <p>© 2025 <span>Aadi Kesharwani</span> · Built without a template · Pune, India</p>
+</div>
+</footer>
+
+<script>
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      // stagger siblings slightly
+      const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal'));
+      const idx = siblings.indexOf(e.target);
+      e.target.style.transitionDelay = (idx * 60) + 'ms';
+    }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── STAT COUNTER (years only, on scroll) ──
+const statEls = document.querySelectorAll('.stat-val[data-target]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    let start = null;
+    const dur = 1600;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const prog = Math.min((ts - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - prog, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (prog < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+statEls.forEach(el => counterObserver.observe(el));
+
+// ── ANIMATED BAR CHART ──
+const barData = [
+  {h:55,c:'gold'},{h:32,c:'purple'},{h:44,c:'blue'},
+  {h:68,c:'gold'},{h:50,c:'purple'},{h:38,c:'blue'},
+  {h:72,c:'gold'},{h:28,c:'purple'},{h:58,c:'blue'},
+  {h:80,c:'gold'},{h:40,c:'purple'},{h:65,c:'blue'}
+];
+const bc = document.getElementById('barChart');
+if (bc) {
+  barData.forEach((b, i) => {
+    const el = document.createElement('div');
+    el.className = `bar ${b.c}`;
+    el.style.height = '0';
+    bc.appendChild(el);
+    setTimeout(() => { el.style.height = b.h + 'px'; }, 500 + i * 60);
+  });
+}
+
+// ── KPI COUNTER ANIMATION ──
+function animateCount(el, target) {
+  if (!el) return;
+  let start = null;
+  const dur = 1800;
+  const step = (ts) => {
+    if (!start) start = ts;
+    const prog = Math.min((ts - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - prog, 3);
+    const val = Math.floor(ease * target);
+    el.textContent = val.toLocaleString();
+    if (prog < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+setTimeout(() => {
+  animateCount(document.getElementById('kpi1'), 38441);
+  animateCount(document.getElementById('kpi2'), 32240);
+  animateCount(document.getElementById('kpi3'), 72561);
+}, 700);
+</script>
+</body>
+</html>
