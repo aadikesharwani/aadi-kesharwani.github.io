@@ -211,16 +211,40 @@ h2{font-family:var(--display);font-size:clamp(28px,4vw,46px);font-weight:800;lin
 
 /* ── EXPERIENCE ── */
 #experience{background:var(--surface);}
+
+/* two-column experience grid */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.exp-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:32px 28px;position:relative;overflow:hidden;transition:border-color .25s;}
+.exp-card:hover{border-color:var(--purple);}
+.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.exp-card:nth-child(1)::before{background:linear-gradient(90deg,var(--purple),var(--blue));}
+.exp-card:nth-child(2)::before{background:linear-gradient(90deg,var(--blue),var(--green));}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:12px;}
+.exp-role{font-size:16px;font-weight:700;line-height:1.2;}
+.exp-date{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap;text-align:right;padding-top:3px;}
+.exp-company{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:18px;}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+.exp-list li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;line-height:1.55;}
+.exp-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:11px;}
+.exp-projects{margin-top:18px;border-top:1px solid var(--border);padding-top:16px;}
+.exp-projects-label{font-family:var(--mono);font-size:10px;color:var(--purple);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.exp-proj-row{display:flex;gap:8px;flex-direction:column;}
+.exp-proj-item{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 12px;}
+.exp-proj-name{font-size:12px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.exp-proj-desc{font-size:11px;color:var(--muted);}
+.exp-badge{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;}
+
+@media(max-width:860px){.exp-grid{grid-template-columns:1fr;}}
+
+/* keep old tl-* for mobile fallback (unused but harmless) */
 .tl{display:flex;flex-direction:column;}
-.tl-item{display:grid;grid-template-columns:180px 32px 1fr;gap:0;}
-.tl-date{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:right;padding-top:3px;padding-right:20px;line-height:1.5;}
+.tl-item{display:grid;grid-template-columns:180px 32px 1fr;}
+.tl-date{font-family:var(--mono);font-size:11px;color:var(--muted);}
 .tl-line{display:flex;flex-direction:column;align-items:center;}
-.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--purple);border:2px solid var(--surface);flex-shrink:0;transition:background .2s;}
-.tl-item:hover .tl-dot{background:var(--accent);}
-.tl-track{flex:1;width:1px;background:var(--border);margin:4px 0;}
-.tl-item:last-child .tl-track{display:none;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--purple);border:2px solid var(--surface);}
+.tl-track{flex:1;width:1px;background:var(--border);}
 .tl-content{padding-bottom:48px;padding-left:20px;}
-.tl-content h3{font-size:17px;font-weight:700;margin-bottom:3px;}
+.tl-content h3{font-size:17px;font-weight:700;}
 .tl-company{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:14px;}
 .tl-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
 .tl-list li{font-size:13px;color:var(--muted);padding-left:16px;position:relative;line-height:1.55;}
@@ -289,6 +313,20 @@ footer span{color:var(--accent);}
   .ticker-track{animation:none;}
 }
 
+/* ── HERO SHOWCASE ── */
+.hero-showcase{border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.55);background:var(--surface);}
+.showcase-bar{background:var(--surface2);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.showcase-bar .db-title{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:6px;}
+/* Hero carousel images fit exactly in the panel */
+#carouselHero{height:360px;}
+#carouselHero .carousel-track{height:360px;}
+#carouselHero .carousel-slide{height:360px;}
+#carouselHero .carousel-slide img{width:100%;height:360px;object-fit:cover;object-position:top left;display:block;}
+
+/* ── PROJ-IMG fixed height, no scroll ── */
+.proj-img{position:relative;height:340px;overflow:hidden;background:var(--surface2);}
+.proj-img img{width:100%;height:340px;object-fit:cover;object-position:top left;display:block;}
+
 /* ── CAROUSEL ── */
 .carousel{position:relative;width:100%;height:100%;min-height:340px;overflow:hidden;background:var(--surface2);}
 .carousel-track{display:flex;height:100%;min-height:340px;transition:transform .45s cubic-bezier(.4,0,.2,1);}
@@ -346,53 +384,28 @@ footer span{color:var(--accent);}
     </div>
   </div>
 
-  <div class="hero-right reveal" aria-hidden="true">
-    <div class="db-preview">
-      <div class="db-bar">
+  <div class="hero-right reveal">
+    <div class="hero-showcase">
+      <div class="showcase-bar">
         <div class="db-dot r"></div>
         <div class="db-dot y"></div>
         <div class="db-dot g"></div>
-        <span class="db-title">Field Dashboard · Power BI · Nation / United States / YTD</span>
+        <span class="db-title">Live dashboard screenshots · Power BI</span>
       </div>
-      <div class="db-body">
-        <div class="db-kpi-row">
-          <div class="db-kpi">
-            <div class="db-kpi-val" id="kpi1" style="color:var(--text)">—</div>
-            <div class="db-kpi-label">Registrations</div>
-            <div class="db-kpi-delta up" id="kpi1d">▲ 62% vs Goal</div>
+      <div class="carousel" id="carouselHero">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="Summary.png" alt="KAM Dashboard — Summary page with KPI cards and enrollment metrics"/>
           </div>
-          <div class="db-kpi">
-            <div class="db-kpi-val" id="kpi2" style="color:var(--text)">—</div>
-            <div class="db-kpi-label">Apheresis</div>
-            <div class="db-kpi-delta up">▲ 105% Attainment</div>
-          </div>
-          <div class="db-kpi">
-            <div class="db-kpi-val" id="kpi3" style="color:var(--text)">—</div>
-            <div class="db-kpi-label">Total HCPs</div>
-            <div class="db-kpi-delta up">▲ 8% vs Prev QTD</div>
+          <div class="carousel-slide">
+            <img src="arc_pcc.png" alt="Field Dashboard — Pre-Call Card page"/>
           </div>
         </div>
-        <div class="db-chart-area">
-          <div class="db-chart-label">// Referral Patterns — Monthly</div>
-          <div class="bar-chart" id="barChart"></div>
-        </div>
-        <div class="db-bottom">
-          <div class="db-mini">
-            <div class="db-mini-label">// ATC Segment Distribution</div>
-            <div class="donut-wrap">
-              <div class="donut"></div>
-              <div class="donut-legend">
-                <div class="dl gold">Gold 38%</div>
-                <div class="dl purple">Silver 37%</div>
-                <div class="dl blue">Bronze 25%</div>
-              </div>
-            </div>
-          </div>
-          <div class="db-mini">
-            <div class="db-mini-label">// Security &amp; Access</div>
-            <div style="font-size:12px;color:var(--muted);line-height:1.6;">Dynamic RLS Active<br>Territory → Region<br>→ Area → National</div>
-            <div class="rls-badge">🔒 RLS ENFORCED</div>
-          </div>
+        <button class="carousel-btn carousel-prev" onclick="carouselMove('carouselHero',-1)" aria-label="Previous">&#8249;</button>
+        <button class="carousel-btn carousel-next" onclick="carouselMove('carouselHero', 1)" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots" id="carouselHero-dots">
+          <span class="carousel-dot active" onclick="carouselGo('carouselHero',0)"></span>
+          <span class="carousel-dot" onclick="carouselGo('carouselHero',1)"></span>
         </div>
       </div>
     </div>
@@ -618,19 +631,10 @@ footer span{color:var(--accent);}
 
   <!-- PROJECT 1 -->
   <div class="project-feature reveal">
-    <div class="proj-img" style="min-height:340px;overflow:hidden;position:relative;">
-      <div class="carousel" id="carousel1">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="Summary.png" alt="KAM Dashboard — Summary page: KPIs, enrollment metrics, activity section and Alerts" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="performance.png" alt="KAM Dashboard — Performance page: enrollment trend chart and prescriber breakdown" loading="lazy"/></div>
-        </div>
-        <button class="carousel-btn carousel-prev" onclick="carouselMove('carousel1',-1)" aria-label="Previous screenshot">&#8249;</button>
-        <button class="carousel-btn carousel-next" onclick="carouselMove('carousel1',1)" aria-label="Next screenshot">&#8250;</button>
-        <div class="carousel-dots" id="carousel1-dots">
-          <span class="carousel-dot active" onclick="carouselGo('carousel1',0)"></span>
-          <span class="carousel-dot" onclick="carouselGo('carousel1',1)"></span>
-        </div>
-      </div>
+    <div class="proj-img">
+      <img src="performance.png"
+           alt="KAM Dashboard — Performance page: enrollment trend, prescriber breakdown and monthly data table"
+           loading="lazy"/>
       <div class="proj-tag-overlay">
         <span class="tag hot">Power BI</span>
         <span class="tag green">Redshift</span>
@@ -639,7 +643,7 @@ footer span{color:var(--accent);}
     </div>
     <div class="proj-content">
       <div class="proj-num">// PROJECT 01</div>
-      <h3>Field Sales &amp; CAR-T Therapy Analytics Platform</h3>
+      <h3>Field Sales Reporting</h3>
       <div class="proj-domain">US Pharma · Confidential Client · ZS Associates</div>
       <p class="proj-desc">
         End-to-end Power BI platform tracking the complete CAR-T therapy patient journey —
@@ -675,19 +679,10 @@ footer span{color:var(--accent);}
 
   <!-- PROJECT 2 -->
   <div class="project-feature reverse reveal">
-    <div class="proj-img" style="min-height:340px;overflow:hidden;position:relative;">
-      <div class="carousel" id="carousel2">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="arc_perf.png" alt="KAM Dashboard — third page screenshot" loading="lazy"/></div>
-          <div class="carousel-slide"><img src="arc_pcc.png" alt="KAM Dashboard — fourth page screenshot" loading="lazy"/></div>
-        </div>
-        <button class="carousel-btn carousel-prev" onclick="carouselMove('carousel2',-1)" aria-label="Previous screenshot">&#8249;</button>
-        <button class="carousel-btn carousel-next" onclick="carouselMove('carousel2',1)" aria-label="Next screenshot">&#8250;</button>
-        <div class="carousel-dots" id="carousel2-dots">
-          <span class="carousel-dot active" onclick="carouselGo('carousel2',0)"></span>
-          <span class="carousel-dot" onclick="carouselGo('carousel2',1)"></span>
-        </div>
-      </div>
+    <div class="proj-img">
+      <img src="arc_perf.png"
+           alt="Field Dashboard — Performance page: apheresis curve, prescriber chart and ATC tier breakdown"
+           loading="lazy"/>
       <div class="proj-tag-overlay">
         <span class="tag hot">Power BI</span>
         <span class="tag">KAM Analytics</span>
@@ -696,7 +691,7 @@ footer span{color:var(--accent);}
     </div>
     <div class="proj-content">
       <div class="proj-num">// PROJECT 02</div>
-      <h3>KAM Field Sales Reporting &amp; Analytics Platform</h3>
+      <h3>Field — Performance Dashboard</h3>
       <div class="proj-domain">US Healthcare · Confidential Client · Celebal Technologies</div>
       <p class="proj-desc">
         Comprehensive Key Account Manager analytics platform for a national US healthcare field force,
@@ -784,55 +779,79 @@ footer span{color:var(--accent);}
 <div class="wrap">
   <p class="sec-label reveal">// career</p>
   <h2 class="reveal">Experience</h2>
-  <div class="tl">
+  <div class="exp-grid">
 
-    <div class="tl-item reveal">
-      <div class="tl-date">Apr 2024<br/>Present</div>
-      <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
-      <div class="tl-content">
-        <h3>Associate — Power Platform Services</h3>
-        <div class="tl-company">ZS Associates · Pune, India · US Healthcare / Pharma</div>
-        <ul class="tl-list">
-          <li>Primary Power BI POC for US pharma client — sole BI owner for a national field sales analytics platform from initial setup through production.</li>
-          <li>Delivered 8 enterprise dashboards in 3 months with 80%+ user adoption and near-zero defects at go-live.</li>
-          <li>Implemented Dynamic RLS across Territory, Region, Area, and National hierarchy — enabling secure self-serve analytics for field reps and leadership.</li>
-          <li>Managed 13 dashboards concurrently across 2 US clients (pharma + healthcare mobile Power BI project).</li>
-          <li>Worked US onshore timelines independently for Nuvation mobile Power BI project — owned 3 dashboards end-to-end.</li>
-          <li>50% backend rotation: built SQL tables, stored procedures, window functions on Amazon Redshift — delivered 50% of a 6-month plan in 2 months.</li>
-          <li>Automated dataset refresh, user access, and report migration via Python scripts integrated with ServiceNow.</li>
-          <li>Delivered 10–15 POCs; mentored one junior Power BI developer.</li>
-          <li>Received "Pat on the Back" award and formal appreciation from PAMs for performance and ownership.</li>
-        </ul>
-        <div class="tl-badge">
-          <span class="tag hot">Power BI</span>
-          <span class="tag">Amazon Redshift</span>
-          <span class="tag green">Python</span>
-          <span class="tag purple">DAX</span>
-          <span class="tag">ServiceNow</span>
+    <!-- ZS Associates -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-role">Associate — Power Platform Services</div>
+        <div class="exp-date">Apr 2024<br/>Present</div>
+      </div>
+      <div class="exp-company">ZS Associates · Pune, India · US Healthcare / Pharma</div>
+      <ul class="exp-list">
+        <li>Primary Power BI POC for US pharma client — sole BI owner of a national field sales analytics platform from setup through production.</li>
+        <li>Delivered 8 enterprise dashboards in 3 months with 80%+ user adoption and near-zero defects at go-live.</li>
+        <li>Dynamic RLS across Territory → Region → Area → National hierarchy for secure self-serve analytics.</li>
+        <li>Managed 13 dashboards concurrently across 2 US clients; worked onshore US timelines independently.</li>
+        <li>50% backend rotation: SQL tables, stored procedures, window functions on Amazon Redshift — 50% of a 6-month plan delivered in 2 months.</li>
+        <li>Automated dataset refresh, user access, and report migration via Python + ServiceNow.</li>
+        <li>Received "Pat on the Back" award and formal appreciation from PAMs.</li>
+      </ul>
+      <div class="exp-projects">
+        <div class="exp-projects-label">// projects delivered</div>
+        <div class="exp-proj-row">
+          <div class="exp-proj-item">
+            <div class="exp-proj-name">Field Sales Reporting</div>
+            <div class="exp-proj-desc">8-page CAR-T therapy analytics · Dynamic RLS · Azure Maps · Veeva + Kite Konnect</div>
+          </div>
+          <div class="exp-proj-item">
+            <div class="exp-proj-name">Field — Performance Dashboard</div>
+            <div class="exp-proj-desc">Apheresis curve · ATC tier charts · Prescriber trend · Weekly / Monthly / Quarterly views</div>
+          </div>
         </div>
+      </div>
+      <div class="exp-badge">
+        <span class="tag hot">Power BI</span>
+        <span class="tag">Amazon Redshift</span>
+        <span class="tag green">Python</span>
+        <span class="tag purple">DAX</span>
+        <span class="tag">ServiceNow</span>
       </div>
     </div>
 
-    <div class="tl-item reveal">
-      <div class="tl-date">Jan 2022<br/>Mar 2024</div>
-      <div class="tl-line"><div class="tl-dot"></div><div class="tl-track"></div></div>
-      <div class="tl-content">
-        <h3>Associate Power BI Developer</h3>
-        <div class="tl-company">Celebal Technologies · Pune, India · Multi-industry</div>
-        <ul class="tl-list">
-          <li>Developed enterprise Power BI dashboards for multiple clients across US healthcare, manufacturing, and retail industries.</li>
-          <li>Integrated data from SQL Server, SAP, SharePoint, Smartsheet, and Oracle into optimized semantic models.</li>
-          <li>Built advanced DAX measures, drill-through reports, bookmarks, and optimized dashboard UI/UX.</li>
-          <li>Managed Power BI Service deployments, gateway configuration, scheduled refreshes, and end-user training.</li>
-          <li>Supported full delivery lifecycle: requirements → development → UAT → go-live → adoption.</li>
-        </ul>
-        <div class="tl-badge">
-          <span class="tag hot">Power BI</span>
-          <span class="tag">SQL Server</span>
-          <span class="tag">SAP</span>
-          <span class="tag">SharePoint</span>
-          <span class="tag">Oracle</span>
+    <!-- Celebal Technologies -->
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div class="exp-role">Associate Power BI Developer</div>
+        <div class="exp-date">Jan 2022<br/>Mar 2024</div>
+      </div>
+      <div class="exp-company">Celebal Technologies · Pune, India · Multi-industry</div>
+      <ul class="exp-list">
+        <li>Built enterprise Power BI dashboards for US healthcare, manufacturing, and retail clients.</li>
+        <li>Integrated SQL Server, SAP, SharePoint, Smartsheet, and Oracle into optimized semantic models.</li>
+        <li>Advanced DAX measures, drill-through reports, bookmarks, and polished dashboard UX.</li>
+        <li>Managed Power BI Service deployments, gateway config, scheduled refreshes, and end-user training.</li>
+        <li>Full lifecycle ownership: requirements → development → UAT → go-live → adoption.</li>
+      </ul>
+      <div class="exp-projects">
+        <div class="exp-projects-label">// projects delivered</div>
+        <div class="exp-proj-row">
+          <div class="exp-proj-item">
+            <div class="exp-proj-name">KAM Field Sales Reporting</div>
+            <div class="exp-proj-desc">10-page US healthcare dashboard · National benchmarking · Prescriber 360° · Payer mix · Speaker programs</div>
+          </div>
+          <div class="exp-proj-item">
+            <div class="exp-proj-name">Multi-client BI Reports</div>
+            <div class="exp-proj-desc">Manufacturing KPIs · Retail sales analytics · Healthcare ops — SQL Server, SAP, SharePoint sources</div>
+          </div>
         </div>
+      </div>
+      <div class="exp-badge">
+        <span class="tag hot">Power BI</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">SAP</span>
+        <span class="tag">SharePoint</span>
+        <span class="tag">Oracle</span>
       </div>
     </div>
 
@@ -991,11 +1010,7 @@ function animateCount(el, target) {
   };
   requestAnimationFrame(step);
 }
-setTimeout(() => {
-  animateCount(document.getElementById('kpi1'), 38441);
-  animateCount(document.getElementById('kpi2'), 32240);
-  animateCount(document.getElementById('kpi3'), 72561);
-}, 700);
+// KPI counter removed — hero now shows real screenshots
 
 // ── CAROUSEL ──
 const carouselState = {};
@@ -1027,6 +1042,13 @@ function carouselMove(id, dir) {
 function carouselAutoPlay(id, interval) {
   setInterval(() => carouselMove(id, 1), interval);
 }
+
+['carouselHero'].forEach(id => {
+  if (document.getElementById(id)) {
+    carouselInit(id);
+    carouselAutoPlay(id, 5000);
+  }
+});
 
 ['carousel1', 'carousel2'].forEach(id => {
   if (document.getElementById(id)) {
