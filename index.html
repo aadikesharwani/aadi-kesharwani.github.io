@@ -850,13 +850,26 @@ footer span{color:var(--accent);}
   <h2 class="reveal">Consulting Decisions I've Delivered</h2>
   <div class="consult-grid">
 
-    <div class="consult-card reveal">
-      <div class="consult-tag">Architecture</div>
-      <h3>Recommended Redshift Over Snowflake for Client Workload</h3>
-      <p class="consult-situation"><strong>Situation:</strong> Client team proposed Snowflake as the BI data source for a new pharma analytics platform.</p>
-      <p class="consult-action"><strong>Recommendation:</strong> Advised retaining Amazon Redshift — existing ZS data warehouse pipelines already landed data there, switching would introduce 3+ months of migration overhead with no analytics benefit at current data volume.</p>
-      <p class="consult-outcome"><strong>Outcome:</strong> Recommendation accepted. Delivered 8 dashboards in 3 months directly from Redshift without migration delay.</p>
-    </div>
+   <div class="consult-card reveal">
+  <div class="consult-tag">Architecture</div>
+
+  <h3>Architecture Assessment: Retained Redshift After Snowflake Evaluation</h3>
+
+  <p class="consult-situation">
+    <strong>Situation:</strong>
+    Stakeholders explored migrating reporting workloads from Amazon Redshift to Snowflake as part of a new analytics initiative.
+  </p>
+
+  <p class="consult-action">
+    <strong>Recommendation:</strong>
+    Performed a comparative assessment of both platforms and recommended retaining Redshift. Existing ETL pipelines, security controls, reporting datasets, and operational processes were already optimized for Redshift, while migration effort and risk outweighed the expected benefits at current scale.
+  </p>
+
+  <p class="consult-outcome">
+    <strong>Outcome:</strong>
+    Migration was deferred, avoiding significant engineering effort and allowing the team to focus on delivering business-critical dashboards on schedule while maintaining platform stability.
+  </p>
+</div>
 
     <div class="consult-card reveal">
       <div class="consult-tag">Data Model</div>
