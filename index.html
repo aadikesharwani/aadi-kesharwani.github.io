@@ -417,10 +417,16 @@ footer span{color:var(--accent);}
       <div class="carousel" id="carouselHero">
         <div class="carousel-track">
           <div class="carousel-slide">
-            <img src="Summary.png" alt="KAM Dashboard — Summary page with KPI cards and enrollment metrics"/>
+            <img src="arc_perf.png" alt="CAR-T Field Dashboard — Performance page with Registrations, Apheresis and Deliveries KPIs"/>
           </div>
           <div class="carousel-slide">
-            <img src="arc_pcc.png" alt="Field Dashboard — Pre-Call Card page"/>
+            <img src="arc_pcc.png" alt="CAR-T Field Dashboard — Pre-Call Card with HCP 360 profile and regimen distribution"/>
+          </div>
+          <div class="carousel-slide">
+            <img src="Summary.png" alt="KAM Dashboard — Summary page with enrollment KPIs and alerts panel"/>
+          </div>
+          <div class="carousel-slide">
+            <img src="performance.png" alt="KAM Dashboard — Performance page with national benchmarking heat maps"/>
           </div>
         </div>
         <button class="carousel-btn carousel-prev" onclick="carouselMove('carouselHero',-1)" aria-label="Previous">&#8249;</button>
@@ -428,6 +434,8 @@ footer span{color:var(--accent);}
         <div class="carousel-dots" id="carouselHero-dots">
           <span class="carousel-dot active" onclick="carouselGo('carouselHero',0)"></span>
           <span class="carousel-dot" onclick="carouselGo('carouselHero',1)"></span>
+          <span class="carousel-dot" onclick="carouselGo('carouselHero',2)"></span>
+          <span class="carousel-dot" onclick="carouselGo('carouselHero',3)"></span>
         </div>
       </div>
     </div>
@@ -442,7 +450,7 @@ footer span{color:var(--accent);}
 <div class="wrap">
 <div class="stats-inner">
   <div class="stat-item">
-    <div class="stat-val" data-target="4" data-suffix="+">0+</div>
+    <div class="stat-val" data-target="4" data-suffix="+">4+</div>
     <div class="stat-label">yrs experience</div>
   </div>
   <div class="stat-item">
@@ -537,14 +545,15 @@ footer span{color:var(--accent);}
 
     <div class="skill-card reveal">
       <div class="skill-icon">☁️</div>
-      <h3>Cloud &amp; AI</h3>
+      <h3>Cloud &amp; Tools</h3>
       <div class="tags">
-        <span class="tag purple">Power BI + Claude AI</span>
-        <span class="tag purple">Azure OpenAI</span>
+        <span class="tag purple">AI-Assisted Development</span>
         <span class="tag">Azure Maps</span>
         <span class="tag">Azure Data Fundamentals</span>
-        <span class="tag">Microsoft Fabric (learning)</span>
+        <span class="tag">Microsoft Fabric</span>
         <span class="tag">Python (automation)</span>
+        <span class="tag">DAX Studio</span>
+        <span class="tag">Tabular Editor</span>
       </div>
     </div>
 
@@ -596,23 +605,21 @@ footer span{color:var(--accent);}
 
   <!-- AI BANNER -->
   <div class="ai-banner reveal">
-    <div class="ai-icon-box" aria-hidden="true">🤖</div>
+    <div class="ai-icon-box" aria-hidden="true">⚡</div>
     <div class="ai-text">
-      <h3>Power BI + Generative AI</h3>
+      <h3>AI-Augmented BI Development</h3>
       <p>
-        Integrating Claude AI and Azure OpenAI with Power BI to build the next generation of
-        enterprise BI — natural language Q&amp;A on dashboards, AI-generated KPI narrative summaries
-        that explain <em>why</em> a metric moved, anomaly detection embedded directly into executive
-        reports, and intelligent pre-call card suggestions for field sales teams.
-        This is where enterprise analytics is heading — and I'm already shipping it.
+        Using Claude AI in the development workflow to accelerate enterprise BI delivery —
+        DAX authoring, M query optimisation, documentation generation, and anomaly pattern
+        identification. AI-assisted development that cuts delivery time without cutting quality.
+        Dashboards ship faster. Models stay clean. Clients get more.
       </p>
       <div class="ai-chips">
-        <span class="chip">Claude AI</span>
-        <span class="chip">Azure OpenAI</span>
-        <span class="chip">NLP on Data</span>
-        <span class="chip">Narrative Summaries</span>
-        <span class="chip">Anomaly Detection</span>
-        <span class="chip">Power BI Embedded</span>
+        <span class="chip">Faster DAX Authoring</span>
+        <span class="chip">M Query Optimisation</span>
+        <span class="chip">Auto Documentation</span>
+        <span class="chip">Pattern Recognition</span>
+        <span class="chip">Accelerated Delivery</span>
       </div>
     </div>
   </div>
@@ -698,60 +705,83 @@ footer span{color:var(--accent);}
   <p class="sec-label reveal">// selected work</p>
   <h2 class="reveal">Enterprise Dashboards Delivered</h2>
 
-  <!-- PROJECT 1 -->
+  <!-- PROJECT 1: CAR-T Field Dashboard — Arcellx / ZS Associates -->
   <div class="project-feature reveal">
     <div class="proj-img">
-      <img src="performance.png"
-           alt="KAM Dashboard — Performance page: enrollment trend, prescriber breakdown and monthly data table"
-           loading="lazy"/>
+      <div class="carousel" id="carousel1">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="arc_perf.png" alt="CAR-T Field Dashboard — Performance page: Registrations, Apheresis, Deliveries KPIs with ATC tier breakdown" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="arc_pcc.png" alt="CAR-T Field Dashboard — Pre-Call Card: HCP 360 profile with interaction timeline and regimen distribution" loading="lazy"/></div>
+        </div>
+        <button class="carousel-btn carousel-prev" onclick="carouselMove('carousel1',-1)" aria-label="Previous">&#8249;</button>
+        <button class="carousel-btn carousel-next" onclick="carouselMove('carousel1', 1)" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots" id="carousel1-dots">
+          <span class="carousel-dot active" onclick="carouselGo('carousel1',0)"></span>
+          <span class="carousel-dot" onclick="carouselGo('carousel1',1)"></span>
+        </div>
+      </div>
       <div class="proj-tag-overlay">
         <span class="tag hot">Power BI</span>
-        <span class="tag green">Redshift</span>
+        <span class="tag green">Amazon Redshift</span>
         <span class="tag purple">Dynamic RLS</span>
       </div>
     </div>
     <div class="proj-content">
       <div class="proj-num">// PROJECT 01</div>
-      <h3>Field Sales Reporting</h3>
-      <div class="proj-domain">US Pharma · Confidential Client · ZS Associates</div>
+      <h3>CAR-T Therapy Analytics Platform</h3>
+      <div class="proj-domain">US Biotech · Confidential Client · ZS Associates</div>
       <p class="proj-desc">
-        End-to-end Power BI platform tracking the complete CAR-T therapy patient journey —
-        from physician registration through apheresis to final delivery — across the entire
-        US national field force at Territory, Region, Area, and National levels.
+        Enterprise Power BI platform tracking the complete CAR-T therapy patient journey —
+        from physician registration through apheresis cell collection to final therapy delivery —
+        built from scratch and delivered to end users with complex dynamic RLS across
+        Territory, Region, Area, and National levels for a US biotech field force.
       </p>
       <ul class="feat-list">
-        <li>8-page report suite: Summary, Performance, Activity, Customer List, Enrollment List, Pre-Call Card, Payer Analysis, Map View</li>
-        <li>Dynamic RLS across 4 geography tiers: Territory → Region → Area → National</li>
-        <li>Key metrics: Registrations, Apheresis, Deliveries, TRx/NRx/NBRx, Cancellations, HCP Reach, Call Frequency, Target Reach</li>
-        <li>ATC segmentation (Gold / Silver / Bronze) with scatter plot opportunity analysis</li>
-        <li>Azure Maps visual for national ATC coverage with cluster markers</li>
-        <li>HCP 360° drill-through: interaction timeline, enrollment trend, patient regimen distribution</li>
-        <li>Auto-generated Insights panel surfacing anomalies without any user query</li>
-        <li>Time intelligence: LTD / YTD / QTD / MTD / R12M / R13W periods</li>
+        <li>8-page report suite built from scratch: Summary, Performance, Activity, Customer List, Enrollment List, Pre-Call Card, Payer Analysis, Map View</li>
+        <li>Dynamic RLS across 4 geography tiers: Territory → Region → Area → National — zero data leakage across 91 territories</li>
+        <li>Key CAR-T metrics: Registrations, Apheresis, Deliveries, Cancellations, ATC Tier (Gold/Silver/Bronze), TAT analysis</li>
+        <li>Scatter plot opportunity analysis: Calls vs Registrations by ATC segment — used by field leadership for territory planning</li>
+        <li>Azure Maps visual showing national ATC coverage with geo-cluster markers</li>
+        <li>HCP 360° Pre-Call Card: interaction timeline, enrollment trend, patient regimen distribution (Abecma, Carvykti, CAR-T, Anti CD38)</li>
+        <li>Auto-generated Insights panel surfacing anomalies — silent ATCs, registration gaps, referral pattern changes — without any user query</li>
+        <li>Time intelligence: LTD / YTD / QTD / MTD / R12M / R13W toggle across all pages</li>
+        <li>Referral pattern tracking: 3L→4L and 4L+→5L+ patient flow with Weekly/Monthly/Quarterly toggle</li>
+        <li>Reduced model query response from 45+ seconds to under 8 seconds via DAX Studio and Vertipaq Analyser optimisation</li>
       </ul>
       <div class="proj-stack">
         <span class="tag hot">Advanced DAX</span>
+        <span class="tag hot">Dynamic RLS</span>
         <span class="tag">Amazon Redshift</span>
-        <span class="tag">Power Query</span>
+        <span class="tag">Power Query (M)</span>
         <span class="tag">Azure Maps</span>
-        <span class="tag">Dynamic RLS</span>
         <span class="tag">Veeva + Kite Konnect</span>
         <span class="tag">Deployment Pipelines</span>
+        <span class="tag">DAX Studio</span>
+        <span class="tag">Vertipaq Analyser</span>
       </div>
       <div class="proj-impact">
         <div class="impact-stat"><div class="impact-val">8</div><div class="impact-desc">dashboards in 3 months</div></div>
-        <div class="impact-stat"><div class="impact-val">80%+</div><div class="impact-desc">user adoption</div></div>
+        <div class="impact-stat"><div class="impact-val">45s→8s</div><div class="impact-desc">load time optimised</div></div>
         <div class="impact-stat"><div class="impact-val">~0</div><div class="impact-desc">defects at go-live</div></div>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 2 -->
+  <!-- PROJECT 2: KAM Field Sales Reporting — AKHealthCare -->
   <div class="project-feature reveal">
     <div class="proj-img">
-      <img src="arc_perf.png"
-           alt="Field Dashboard — Performance page: apheresis curve, prescriber chart and ATC tier breakdown"
-           loading="lazy"/>
+      <div class="carousel" id="carousel2">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="Summary.png" alt="KAM Dashboard — Summary page with enrollment KPIs, alerts and insights panel" loading="lazy"/></div>
+          <div class="carousel-slide"><img src="performance.png" alt="KAM Dashboard — Performance page with national average benchmarking and geography drill-down" loading="lazy"/></div>
+        </div>
+        <button class="carousel-btn carousel-prev" onclick="carouselMove('carousel2',-1)" aria-label="Previous">&#8249;</button>
+        <button class="carousel-btn carousel-next" onclick="carouselMove('carousel2', 1)" aria-label="Next">&#8250;</button>
+        <div class="carousel-dots" id="carousel2-dots">
+          <span class="carousel-dot active" onclick="carouselGo('carousel2',0)"></span>
+          <span class="carousel-dot" onclick="carouselGo('carousel2',1)"></span>
+        </div>
+      </div>
       <div class="proj-tag-overlay">
         <span class="tag hot">Power BI</span>
         <span class="tag">KAM Analytics</span>
@@ -760,35 +790,40 @@ footer span{color:var(--accent);}
     </div>
     <div class="proj-content">
       <div class="proj-num">// PROJECT 02</div>
-      <h3>Field — Performance Dashboard</h3>
-      <div class="proj-domain">US Healthcare · Confidential Client · Celebal Technologies</div>
+      <h3>KAM Field Sales Reporting Platform</h3>
+      <div class="proj-domain">US Healthcare · Ophthalmology · ZS Associates</div>
       <p class="proj-desc">
         Comprehensive Key Account Manager analytics platform for a national US healthcare field force,
-        enabling reps and leadership to track enrollments, prescriber engagement, payer mix, and
-        speaker program effectiveness across all US geographies.
+        built from scratch with complex dynamic RLS and delivered to end users — enabling reps and
+        leadership to track new enrollments, prescriber engagement, payer mix, and speaker program
+        effectiveness across all US geographies with national average benchmarking.
       </p>
       <ul class="feat-list">
-        <li>10-page report: My Team Summary, My Team Details, Summary, Performance, Activity, Geography Performance, Enrollment List, Customer List, Pre-Call Card, Payer</li>
-        <li>National Average benchmarking with color-coded Top 25% / Middle 50% / Bottom 25% heat maps</li>
-        <li>Geography drill-down: Nation → Area → Region → Territory with expandable matrix</li>
-        <li>Prescriber 360° view: NPS, Median Time to Therapy, enrollment trends, interaction history</li>
-        <li>Payer mix analysis: donut by payer type + payer trend over time (Medicare/Medicaid/Commercial)</li>
-        <li>Speaker Program tracker: program counts by speaker, attendee breakdown, RD Dashboard</li>
-        <li>Silent prescriber flagging with configurable time-period thresholds</li>
+        <li>10-page report suite built from scratch: My Team Summary, My Team Details, Summary, Performance, Activity, Geography Performance, Enrollment List, Customer List, Pre-Call Card, Payer</li>
+        <li>Dynamic RLS implemented across Nation → Area → Region → Territory hierarchy — reps see only their data, managers see their team</li>
+        <li>National Average benchmarking with colour-coded Top 25% / Middle 50% / Bottom 25% heat maps across all territories</li>
+        <li>New Enrollment tracking: 26.9% YoY growth, new vs continuing vs reactivated prescriber segmentation</li>
+        <li>Prescriber 360° view: NPS, Median Time to Therapy, enrollment trends, interaction history, silent prescriber flagging</li>
+        <li>Payer mix analysis: donut by type + trend over time — Medicare / Medicaid / Commercial with Top 10 payers by volume</li>
+        <li>Speaker Program tracker: program counts by speaker, RD Dashboard, attendee breakdown by target/tier/status/specialty</li>
+        <li>AI-style Alerts &amp; Insights panel: auto-surfaces new prescribers in last 30 days, enrollment anomalies, silent prescriber count</li>
+        <li>Call vs New Enrollments scatter analysis by tier, specialty, and target for territory coaching decisions</li>
+        <li>Time intelligence: R12M-YOY / YTD-YOY / QTD toggle across all pages</li>
       </ul>
       <div class="proj-stack">
         <span class="tag hot">Advanced DAX</span>
+        <span class="tag hot">Dynamic RLS</span>
         <span class="tag">Conditional Formatting</span>
         <span class="tag">Time Intelligence</span>
         <span class="tag">Bookmarks</span>
         <span class="tag">Drill-through</span>
         <span class="tag">Custom Tooltips</span>
-        <span class="tag">Dynamic RLS</span>
+        <span class="tag">Deployment Pipelines</span>
       </div>
       <div class="proj-impact">
         <div class="impact-stat"><div class="impact-val">10+</div><div class="impact-desc">report pages</div></div>
+        <div class="impact-stat"><div class="impact-val">80%+</div><div class="impact-desc">user adoption</div></div>
         <div class="impact-stat"><div class="impact-val">National</div><div class="impact-desc">US field force coverage</div></div>
-        <div class="impact-stat"><div class="impact-val">KAM</div><div class="impact-desc">self-serve analytics</div></div>
       </div>
     </div>
   </div>
@@ -1059,7 +1094,7 @@ footer span{color:var(--accent);}
 
 <footer>
 <div class="wrap">
-  <p>© 2025 <span>Aadi Kesharwani</span> · Built without a template · Pune, India</p>
+  <p>© 2026 <span>Aadi Kesharwani</span> · Built without a template · Pune, India</p>
 </div>
 </footer>
 
